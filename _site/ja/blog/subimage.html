@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    
+    <meta name="description" content="Ebitengine is an open source game engine for the Go programming language. Ebitengine&#39;s simple API allows you to quickly and easily develop 2D games that can be deployed across multiple platforms.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#db5620">
+    <meta property="og:title" content="1.12 に入る破壊的変更: サブ画像の描画 - Ebitengine">
+    <meta property="og:site_name" content="Ebitengine - A dead simple 2D game engine for Go">
+    <meta property="og:image" content="https://ebitengine.org/images/share.png">
+    <meta property="og:description" content="Ebitengine is an open source game engine for the Go programming language. Ebitengine&#39;s simple API allows you to quickly and easily develop 2D games that can be deployed across multiple platforms.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@hajimehoshi">
+    <meta name="twitter:title" content="1.12 に入る破壊的変更: サブ画像の描画 - Ebitengine">
+    <meta name="twitter:description" content="Ebitengine is an open source game engine for the Go programming language. Ebitengine&#39;s simple API allows you to quickly and easily develop 2D games that can be deployed across multiple platforms.">
+    <meta name="twitter:image" content="https://ebitengine.org/images/share.png">
+    <title>1.12 に入る破壊的変更: サブ画像の描画 - Ebitengine</title>
+    <link rel="canonical" href="https://ebitengine.org/ja/blog/subimage.html">
+    <link rel="stylesheet" type="text/css" href="/styles/style.css">
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/katex.min.css" integrity="sha384-bYdxxUwYipFNohQlHt0bjN/LCpueqWz13HufFEV1SUatKs1cm4L6fFgCi1jT643X" crossorigin="anonymous">
+    <script src="/scripts/script.js" defer></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/katex.min.js" integrity="sha384-Qsn9KnoKISj6dI8g7p1HBlNpVx0I8p1SvlwOldgi3IorMle61nQy4zEahWYtljaz" crossorigin="anonymous"></script>
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "909e4403b96c402996fca889d074c29f"}'></script>
+  </head>
+  <body>
+    <input type="checkbox" id="sidemenu"><label for="sidemenu" class="sidemenubutton"></label><label for="sidemenu" class="sidemenucover"></label>
+    <nav>
+      <h1><a href="/ja/">Ebitengine™</a></h1>
+      <ul id="language">
+        <li><a href="/en/blog/subimage.html">English</a></li>
+      
+        <li class="active">日本語</li>
+      </ul>
+      <ul>
+        <li><a href="https://ebiten-zh.vercel.app/">中文</a></li>
+      </ul>
+      <ul>
+        
+        <li><a href="/ja/">ホーム</a></li>
+        <li><a href="https://github.com/hajimehoshi/ebiten">ソースコード</a></li>
+        <li><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten/v2">API リファレンス</a></li>
+        <li><a href="/ja/tour/">ツアー (未完成)</a></li>
+        <li><a href="/ja/documents/">ドキュメント</a></li>
+        <li><a href="/ja/examples/">サンプル</a></li>
+        <li><a href="/ja/blog/">ブログ</a></li>
+        <li><a href="/ja/contact.html">連絡先</a></li>
+      </ul>
+      <h2>Blog</h2>
+<h3>2022-08</h3>
+<ul>
+  <li><a href="./v2.4.0.html">v2.4.0 がリリースされました</a></li>
+</ul>
+<h3>2022-06</h3>
+<ul>
+  <li><a href="./jam2022.html">Ebitengine ゲームジャムが始まりました</a></li>
+</ul>
+<h3>2022-05</h3>
+<ul>
+  <li><a href="./ebitengine.html">Ebiten を Ebitengine に名称変更しました</a></li>
+</ul>
+<h3>2022-04</h3>
+<ul>
+  <li><a href="./v2.3.0.html">v2.3.0 がリリースされました</a></li>
+</ul>
+<h3>2022-01</h3>
+<ul>
+  <li><a href="/en/blog/native_compiling_for_nintendo_switch.html">Compiling a Go program into a native binary for Nintendo Switch™</a></li>
+</ul>
+<h3>2021-12</h3>
+<ul>
+  <li><a href="./2021.html">2021 年の Ebiten</a></li>
+</ul>
+<h3>2021-10</h3>
+<ul>
+  <li><a href="./v2.2.0.html">v2.2.0 がリリースされました</a></li>
+</ul>
+<h3>2021-08</h3>
+<ul>
+  <li><a href="./steam.html">Steam に Ebiten ゲームをリリースする方法</a></li>
+</ul>
+<h3>2021-06</h3>
+<ul>
+  <li><a href="./nintendo_switch.html">Ebiten が Nintendo Switch™ をサポートしました!</a></li>
+</ul>
+<h3>2021-05</h3>
+<ul>
+  <li><a href="./v2.1.0.html">v2.1.0 がリリースされました</a></li>
+</ul>
+<h3>2020-12</h3>
+<ul>
+  <li><a href="./2020.html">2020 年の Ebiten</a></li>
+</ul>
+<h3>2020-10</h3>
+<ul>
+  <li><a href="./v2.0.0.html">v2.0.0 がリリースされました</a></li>
+  <li><a href="./v2_is_coming.html">Ebiten v2 がやってくる</a></li>
+  <li><a href="./v1.12.0.html">v1.12.0 がリリースされました</a></li>
+</ul>
+<h3>2020-07</h3>
+<ul>
+  <li><a href="./roadmap2020.html">2020 年以降のロードマップ</a></li>
+</ul>
+<h3>2020-06</h3>
+<ul>
+  <li><a href="./subimage.html">1.12 に入る破壊的変更: サブ画像の描画</a></li>
+</ul>
+<h3>2020-04</h3>
+<ul>
+  <li><a href="./v1.11.0.html">v1.11.0 がリリースされました</a></li>
+</ul>
+<h3>2020-03</h3>
+<ul>
+  <li><a href="/en/blog/v1.10.5.html">v1.10.5 is released</a></li>
+</ul>
+<h3>2020-02</h3>
+<ul>
+  <li><a href="/en/blog/v1.10.4.html">v1.10.4 is released</a></li>
+</ul>
+<h3>2020-01</h3>
+<ul>
+  <li><a href="/en/blog/v1.10.3.html">v1.10.3 is released</a></li>
+</ul>
+<h3>2019-12</h3>
+<ul>
+  <li><a href="/en/blog/v1.10.2.html">v1.10.2 is released</a></li>
+  <li><a href="/en/blog/resizable.html">New API to make a resizable window</a></li>
+  <li><a href="/en/blog/2019.html">Ebiten in 2019</a></li>
+</ul>
+<h3>2019-11</h3>
+<ul>
+  <li><a href="/en/blog/v1.10.1.html">v1.10.1 is released</a></li>
+  <li><a href="/en/blog/hello.html">Hello!</a></li>
+</ul>
+
+    </nav>
+    <main>
+      <article>
+        <h1>1.12 に入る破壊的変更: サブ画像の描画</h1>
+<p class="meta">Hajime Hoshi<br><span id="meta-created">2020-06-28</span></p>
+<p>この記事は 2020 年 6 月現在の情報であり、予定を変更する可能性もあります。</p>
+<h2>要約</h2>
+<p>Ebiten は 1.12 (現在の master ブランチ) から破壊的を導入する予定です。 Ebiten は、画像の描画の際、描画元領域のチェックをしないようになり、そのためいくつかのケースでは予期しないピクセルが描画されることがあります。この描画結果の違いは、以下の条件のすべてが満たされた場合に発生しえます:</p>
+<ul>
+  <li>サブ画像 (<code>SubImage</code> 関数で作られた画像) が使われる</li>
+  <li>画像が拡大縮小または回転されて描画される</li>
+  <li>隣接する領域の画像が連続していない</li>
+</ul>
+<p>例えば、テクスチャアトラス上のタイルを拡大縮小や回転をさせて描画する場合、 1.11 とは違った結果になりえます。描画結果が隣接する領域のピクセルを含むかもしれません。一方例えば、 9-patch で描画するような場合は、画像が連続しているので問題にはなりません。</p>
+<div class="grid-container">
+  <div class="grid-item-2">
+    <p>次の画像はサブ画像、および右側に連続しない画像を含む例です。</p>
+    <p>必要ならば、テクスチャアトラスの各領域にパディングを追加する必要があります。</p>
+  </div>
+  <div class="grid-item-2">
+    <p class="img"><img src="/images/blog/subimage/subimage.png" width="360"></p>
+  </div>
+</div>
+<h2>背景</h2>
+<div class="grid-container">
+  <div class="grid-item-2">
+    <p>Ebiten には自動テクスチャアトラスと呼ばれる機能があります。たとえ大量の <code>ebiten.Image</code> を作ったとしても、 Ebiten はそれらを一つのテクスチャアトラス領域上に可能な限り確保しようとします。これによって GPU に送られるグラフィックス命令を減らすことができ、効果的な描画が実現できます。さらに、 Ebiten ユーザーはこのことを気にする必要がないのです。素晴らしい!</p>
+  </div>
+  <div class="grid-item-2">
+    <p class="img"><img src="/images/blog/subimage/textureatlas.png" width="300"></p>
+  </div>
+</div>
+<p>Ebiten がテクスチャアトラスの一部を描画するとき、 Ebiten は隣接する領域のピクセルを露出させないために、あるハック (小細工) をしていました。このハックがないと、特に画像を回転または拡大縮小させて描画したときに、隣接するピクセルが露出してしまいます。これは一般的なゲームプログラミングの問題です。ハックとして、 Ebiten は次の 2 つのことをしていました:</p>
+<ul>
+  <li>テクセル (テクスチャの座標) をちょっとだけずらす</li>
+  <li>シェーダー内で描画元領域をチェックする</li>
+</ul>
+<p>両方ともコードのメンテナンス性の観点から問題でしたが、特に 2 つ目のハックが問題でした。一つの理由はパフォーマンスです。このハックのせいで if 分岐がシェーダーに追加されてしまい、パフォーマンスが落ちていました。もう一つの理由は、 1.12 に向けて導入中のカスタムシェーダーの定義が難しくなることです。カスタムシェーダー内で、画像からピクセルを取るときに簡単な方法で取れるのが望ましいのですが、このハックを実現するために特殊な関数などを用意しなければなりません。</p>
+<h2>ハックの削除</h2>
+<div class="grid-container">
+  <div class="grid-item-2">
+    <p>我々はこれらのハックを削除することにしました。代わりに全ての自動テクスチャアトラス上の画像は 1px のパディング付きで確保されます。描画元領域のチェックがなくとも、外側のピクセルは透明であり、隣接する領域を侵害してしまうことは決してないのです。</p>
+  </div>
+  <div class="grid-item-2">
+    <p class="img"><img src="/images/blog/subimage/textureatlas_with_paddings.png" width="300"></p>
+  </div>
+  <div class="grid-item-2">
+    <p>しかし、 Ebiten はサブ画像も取り扱えます。サブ画像は <code>(*ebiten.Image).SubImage</code> 関数で作られた画像です。これらは既存の画像の一部です。サブ画像はパディング付きで独立して確保することができません。全てのサブ画像をパディング付きの独立した画像として確保する案もありましたが、これはパフォーマンスとメモリの観点から良くありませんでした。もしユーザーが画像上で <code>SubImage</code> を 1px ずつずらした領域で大量に呼んだ場合、それぞれのサブ画像分領域が確保されてしまいます。</p>
+  </div>
+  <div class="grid-item-2">
+    <p class="img"><img src="/images/blog/subimage/subimage_textureatlas.png" width="456"></p>
+  </div>
+</div>
+<p>よって、サブ画像についてはパディングを追加するのは諦めました。結果として、サブ画像の描画は 1.11 と比べると違った結果を引き起こすことがあります。特に、画像を回転または拡大縮小させた場合、隣接する領域のピクセルが描画されることがあります。</p>
+<h2>例</h2>
+<p>拡大と回転したサブ画像によって、隣接領域が見えてしまった描画の例です。右側に本来描画されるべきではない緑色のピクセルが描画されています。この描画は最新の master ブランチ (<a href="https://github.com/hajimehoshi/ebiten/tree/aee5d6d7084732e4d608ec72e9938e04ceddef5c">aee5d6d7</a>) でテストされました。結果は GPU によって異なります。</p>
+<div class="grid-container">
+  <div class="grid-item-2">
+    <pre data-codesrc="/go/blog/subimage/example.go"></pre>
+  </div>
+  <div class="grid-item-2">
+    <p class="img"><img src="/images/blog/subimage/example.png" width="320"></p>
+    <p class="img"><img src="/images/blog/subimage/example_enlarged.png" width="276"></p>
+  </div>
+</div>
+<h2>あなたがすべきこと</h2>
+<p>もし自作のテクスチャアトラスがあり、かつそれらの一部を拡大縮小または回転させて描画させ、かつそれらの画像が連続していない場合、パディングをそれぞれのパートに追加する必要があります。</p>
+
+      </article>
+      <footer>
+        
+        <p>このページに何か問題がありましたら、<a href="https://github.com/ebitengine/ebitengine.org/issues/new?body=https%3a%2f%2febitengine.org%2fja%2fblog%2fsubimage.html%0a%0a">GitHub にて報告</a>していただけると幸いです。</p>
+      </footer>
+    </main>
+  </body>
+</html>

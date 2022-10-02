@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    
+    <meta name="description" content="Ebitengine is an open source game engine for the Go programming language. Ebitengine&#39;s simple API allows you to quickly and easily develop 2D games that can be deployed across multiple platforms.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#db5620">
+    <meta property="og:title" content="Blocks - Ebitengine">
+    <meta property="og:site_name" content="Ebitengine - A dead simple 2D game engine for Go">
+    <meta property="og:image" content="https://ebitengine.org/images/examples/blocks.png">
+    <meta property="og:description" content="Ebitengine is an open source game engine for the Go programming language. Ebitengine&#39;s simple API allows you to quickly and easily develop 2D games that can be deployed across multiple platforms.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@hajimehoshi">
+    <meta name="twitter:title" content="Blocks - Ebitengine">
+    <meta name="twitter:description" content="Ebitengine is an open source game engine for the Go programming language. Ebitengine&#39;s simple API allows you to quickly and easily develop 2D games that can be deployed across multiple platforms.">
+    <meta name="twitter:image" content="https://ebitengine.org/images/examples/blocks.png">
+    <title>Blocks - Ebitengine</title>
+    <link rel="canonical" href="https://ebitengine.org/ja/examples/blocks.html">
+    <link rel="stylesheet" type="text/css" href="/styles/style.css">
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/katex.min.css" integrity="sha384-bYdxxUwYipFNohQlHt0bjN/LCpueqWz13HufFEV1SUatKs1cm4L6fFgCi1jT643X" crossorigin="anonymous">
+    <script src="/scripts/script.js" defer></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/katex.min.js" integrity="sha384-Qsn9KnoKISj6dI8g7p1HBlNpVx0I8p1SvlwOldgi3IorMle61nQy4zEahWYtljaz" crossorigin="anonymous"></script>
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "909e4403b96c402996fca889d074c29f"}'></script>
+  </head>
+  <body>
+    <input type="checkbox" id="sidemenu"><label for="sidemenu" class="sidemenubutton"></label><label for="sidemenu" class="sidemenucover"></label>
+    <nav>
+      <h1><a href="/ja/">Ebitengine™</a></h1>
+      <ul id="language">
+        <li><a href="/en/examples/blocks.html">English</a></li>
+      
+        <li class="active">日本語</li>
+      </ul>
+      <ul>
+        <li><a href="https://ebiten-zh.vercel.app/">中文</a></li>
+      </ul>
+      <ul>
+        
+        <li><a href="/ja/">ホーム</a></li>
+        <li><a href="https://github.com/hajimehoshi/ebiten">ソースコード</a></li>
+        <li><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten/v2">API リファレンス</a></li>
+        <li><a href="/ja/tour/">ツアー (未完成)</a></li>
+        <li><a href="/ja/documents/">ドキュメント</a></li>
+        <li><a href="/ja/examples/">サンプル</a></li>
+        <li><a href="/ja/blog/">ブログ</a></li>
+        <li><a href="/ja/contact.html">連絡先</a></li>
+      </ul>
+      <h2>サンプル</h2>
+<h3>グラフィックス (基本)</h3>
+<ul>
+  <li><a href="animation.html">Animation</a></li>
+  <li><a href="blur.html">Blur</a></li>
+  <li><a href="filter.html">Filter</a></li>
+  <li><a href="flood.html">Flood</a></li>
+  <li><a href="font.html">Font</a></li>
+  <li><a href="hsv.html">HSV</a></li>
+  <li><a href="infinitescroll.html">Infinite Scroll</a></li>
+  <li><a href="life.html">Game of Life</a></li>
+  <li><a href="mandelbrot.html">Mandelbrot</a></li>
+  <li><a href="mosaic.html">Mosaic</a></li>
+  <li><a href="noise.html">Noise</a></li>
+  <li><a href="particles.html">Particles</a></li>
+  <li><a href="polygons.html">Polygons</a></li>
+  <li><a href="sprites.html">Sprites</a></li>
+  <li><a href="stars.html">Stars</a></li>
+  <li><a href="tiles.html">Tiles</a></li>
+</ul>
+<h3>グラフィックス (応用)</h3>
+<ul>
+  <li><a href="airship.html">Airship</a></li>
+  <li><a href="chipmunk.html">Chipmunk Physics</a></li>
+  <li><a href="drag.html">Drag &amp; Drop</a></li>
+  <li><a href="highdpi.html">Hi-DPI</a></li>
+  <li><a href="isometric.html">Isometric</a></li>
+  <li><a href="masking.html">Masking</a></li>
+  <li><a href="paint.html">Paint</a></li>
+  <li><a href="perspective.html">Perspective</a></li>
+  <li><a href="raycasting.html">Ray Casting</a></li>
+  <li><a href="shader.html">Shader</a></li>
+  <li><a href="vector.html">Vector Graphics</a></li>
+</ul>
+<h3>入力</h3>
+<ul>
+  <li><a href="gamepad.html">Gamepad</a></li>
+  <li><a href="keyboard.html">Keyboard</a></li>
+  <li><a href="typewriter.html">Typewriter</a></li>
+  <li><a href="wheel.html">Wheel</a></li>
+</ul>
+<h3>オーディオ</h3>
+<ul>
+  <li><a href="audio.html">Audio</a></li>
+  <li><a href="piano.html">Piano</a></li>
+  <li><a href="sinewave.html">Sine Wave</a></li>
+</ul>
+<h3>ゲーム</h3>
+<ul>
+  <li><a href="2048.html">2048</a></li>
+  <li><a href="blocks.html">Blocks</a></li>
+  <li><a href="flappy.html">Flappy</a></li>
+</ul>
+
+    </nav>
+    <main>
+      <article>
+        <h1>Blocks</h1>
+<p class="img"><iframe src="/_wasm.html?blocks" width="512" height="480" allow="autoplay"></iframe></p>
+<p style="display: none;"><img id="meta-share" src="/images/examples/blocks.png"></p>
+<h2>ローカルマシンでの実行</h2>
+<pre><code>go run -tags=example github.com/hajimehoshi/ebiten/v2/examples/blocks@latest</code></pre>
+
+      </article>
+      <footer>
+        
+        <p>このページに何か問題がありましたら、<a href="https://github.com/ebitengine/ebitengine.org/issues/new?body=https%3a%2f%2febitengine.org%2fja%2fexamples%2fblocks.html%0a%0a">GitHub にて報告</a>していただけると幸いです。</p>
+      </footer>
+    </main>
+  </body>
+</html>

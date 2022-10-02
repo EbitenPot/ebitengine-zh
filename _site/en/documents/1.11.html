@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    
+    <meta name="description" content="Ebitengine is an open source game engine for the Go programming language. Ebitengine&#39;s simple API allows you to quickly and easily develop 2D games that can be deployed across multiple platforms.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#db5620">
+    <meta property="og:title" content="Ebiten 1.11 Release Notes - Ebitengine">
+    <meta property="og:site_name" content="Ebitengine - A dead simple 2D game engine for Go">
+    <meta property="og:image" content="https://ebitengine.org/images/share.png">
+    <meta property="og:description" content="Ebitengine is an open source game engine for the Go programming language. Ebitengine&#39;s simple API allows you to quickly and easily develop 2D games that can be deployed across multiple platforms.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@hajimehoshi">
+    <meta name="twitter:title" content="Ebiten 1.11 Release Notes - Ebitengine">
+    <meta name="twitter:description" content="Ebitengine is an open source game engine for the Go programming language. Ebitengine&#39;s simple API allows you to quickly and easily develop 2D games that can be deployed across multiple platforms.">
+    <meta name="twitter:image" content="https://ebitengine.org/images/share.png">
+    <title>Ebiten 1.11 Release Notes - Ebitengine</title>
+    <link rel="canonical" href="https://ebitengine.org/en/documents/1.11.html">
+    <link rel="stylesheet" type="text/css" href="/styles/style.css">
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/katex.min.css" integrity="sha384-bYdxxUwYipFNohQlHt0bjN/LCpueqWz13HufFEV1SUatKs1cm4L6fFgCi1jT643X" crossorigin="anonymous">
+    <script src="/scripts/script.js" defer></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/katex.min.js" integrity="sha384-Qsn9KnoKISj6dI8g7p1HBlNpVx0I8p1SvlwOldgi3IorMle61nQy4zEahWYtljaz" crossorigin="anonymous"></script>
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "909e4403b96c402996fca889d074c29f"}'></script>
+  </head>
+  <body>
+    <input type="checkbox" id="sidemenu"><label for="sidemenu" class="sidemenubutton"></label><label for="sidemenu" class="sidemenucover"></label>
+    <nav>
+      <h1><a href="/">Ebitengine™</a></h1>
+      <ul id="language">
+        <li class="active">English</li>
+      
+        <li><a href="/ja/documents/1.11.html">日本語</a></li>
+      </ul>
+      <ul>
+        <li><a href="https://ebiten-zh.vercel.app/">中文</a></li>
+      </ul>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="https://github.com/hajimehoshi/ebiten">Source code</a></li>
+        <li><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten/v2">API reference</a></li>
+        <li><a href="/en/tour/">Tour (WIP)</a></li>
+        <li><a href="/en/documents/">Documents</a></li>
+        <li><a href="/en/examples/">Examples</a></li>
+        <li><a href="/en/blog/">Blog</a></li>
+        <li><a href="/en/contact.html">Contact Us</a></li>
+        
+      </ul>
+      <h2>Documents</h2>
+<h3>Install</h3>
+<ul>
+  <li><a href="./install.html">Install</a></li>
+  <li><a href="./mobile.html">Mobile</a></li>
+  <li><a href="./webassembly.html">WebAssembly</a></li>
+  <li><a href="./gopherjs.html">GopherJS</a></li>
+</ul>
+<h3>Features</h3>
+<ul>
+  <li><a href="./features.html">Features</a></li>
+  <li><a href="./shader.html">Shader</a></li>
+</ul>
+<h3>Release Notes</h2>
+<ul>
+  <li><a href="./2.4.html">2.4</a></li>
+  <li><a href="./2.3.html">2.3</a></li>
+  <li><a href="./2.2.html">2.2</a></li>
+  <li><a href="./2.1.html">2.1</a></li>
+  <li><a href="./2.0.html">2.0</a></li>
+  <li><a href="./1.12.html">1.12</a></li>
+  <li><a href="./1.11.html">1.11</a></li>
+</ul>
+<h3>Misc</h3>
+<ul>
+  <li><a href="./cheatsheet.html">Cheat Sheet</a></li>
+  <li><a href="./matrix.html">Matrix in Ebitengine</a></li>
+  <li><a href="./faq.html">FAQ</a></li>
+  <li><a href="./performancetips.html">Performance Tips</a></li>
+  <li><a href="./packages.html">Packages</a></li>
+  <li><a href="./implementation.html">Implementation</a></li>
+  <li><a href="./to_v2.html">Ebitengine v2 Migration Guide</a></li>
+</ul>
+
+    </nav>
+    <main>
+      <article>
+        <h1>Ebiten 1.11 Release Notes</h1>
+<h2>v1.11.0</h2>
+<p><a href="https://github.com/hajimehoshi/ebiten/milestone/28?closed=1">Issues for v1.11.0</a></p>
+<h3>New features</h3>
+<div class="grid-container">
+  <div class="grid-item-2">
+    <h4><code>Game</code> interface and <code>RunGame</code></h4>
+    <p><code><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten?tab=doc#Game">Game</a></code> interface and <code><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten?tab=doc#RunGame">RunGame</a></code> function are introduced. These are new API to run a game.</p>
+    <p><code><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten?tab=doc#Run">Run</a></code> function is not deprecated and will remain for a while, but it is recommended to use <code>Game</code> interface and <code>RunGame</code> function for new usages.</p>
+    <p>These are ncessary to make the window resizable instead of <code>Run</code> (<a href="https://github.com/hajimehoshi/ebiten/issues/943">Issue 943</a>).</p>
+    <h4>Resizable window</h4>
+    <p>For more details about a resizable window, see <a href="/en/blog/resizable.html">the blog article</a>.</p>
+    <ul>
+      <li><code><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten?tab=doc#IsWindowResizable">IsWindowResizable</a></code> / <code><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten?tab=doc#SetWindowResizable">SetWindowResizable</a></code> are introduced (<a href="https://github.com/hajimehoshi/ebiten/issues/320">Issue 320</a>).</li>
+      <li><code><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten?tab=doc#WindowSize">WindowSize</a></code> / <code><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten?tab=doc#SetWindowSize">SetWindowSize</a></code> are introduced (<a href="https://github.com/hajimehoshi/ebiten/issues/320">Issue 320</a>).</li>
+      <li><code><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten?tab=doc#MaximizeWindow">MaximizeWindow</a></code> / <code><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten?tab=doc#IsWindowMaximized">IsWindowMaximized</a></code> are introduced (<a href="https://github.com/hajimehoshi/ebiten/issues/994">Issue 994</a>).</li>
+      <li><code><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten?tab=doc#MinimizeWindow">MinimizeWindow</a></code> / <code><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten?tab=doc#IsWindowMinimized">IsWindowMinimized</a></code> are introduced (<a href="https://github.com/hajimehoshi/ebiten/issues/994">Issue 994</a>).</li>
+      <li><code><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten?tab=doc#RestoreWindow">RestoreWindow</a></code> is introduced (<a href="https://github.com/hajimehoshi/ebiten/issues/994">Issue 994</a>).</li>
+    </ul>
+  </div>
+  <div class="grid-item-2">
+    <pre><code>type Game struct{}
+
+func (g *Game) Update(screen *ebiten.Image) error {
+    // Update the game state
+    return nil
+}
+
+func (g *Game) Draw(screen *ebiten.Image) {
+    // Draw the current game state
+}
+
+func (g *Game) Layout(outsideWidth, outsideHeight int)
+    (screenWidth, screenHeight int) {
+    // Accepts the outside size (e.g., window size), and
+    // returns the game screen size.
+    // The game screen scale is automatically adjusted.
+    return 320, 240
+}
+
+func main() {
+    g := &amp;Game{}
+    if err := ebiten.RunGame(g); err != nil {
+        panic(err)
+    }
+}</code></pre>
+  </div>
+</div>
+<div class="grid-container">
+  <div class="grid-item-2">
+    <h4>Window position</h4>
+    <ul>
+      <li><code><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten?tab=doc#WindowPosition">WindowPosition</a></code> / <code><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten?tab=doc#SetWindowPosition">SetWindowPosition</a></code> are introduced (<a href="https://github.com/hajimehoshi/ebiten/issues/936">Issue 936</a>).</li>
+    </ul>
+    <h4>Transparent screen</h4>
+    <ul>
+      <li><code><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten?tab=doc#SetScreenTransparent">SetScreenTransparent</a></code> / <code><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten?tab=doc#IsScreenTransparent">IsScreenTransparent</a></code> are introduced (<a href="https://github.com/hajimehoshi/ebiten/issues/1001">Issue 1001</a>).</li>
+    </ul>
+    <h4>Floating window</h4>
+    <ul>
+      <li><code><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten?tab=doc#SetWindowFloating">SetWindowFloating</a></code> / <code><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten?tab=doc#IsWindowFloating">IsWindowFloating</a></code> are introduced (<a href="https://github.com/hajimehoshi/ebiten/issues/880">Issue 880</a>).</li>
+    </ul>
+    <p>You can develop a desktop mascot application with these API. See <a href="https://github.com/hajimehoshi/ebiten/tree/1.11/examples/mascot/main.go">the mascot example</a>.</p>
+  </div>
+  <div class="grid-item-2">
+    <p class="img"><video controls autoplay src="/images/documents/1.11/mascot.mp4" width="400"></p>
+  </div>
+</div>
+<h4>Capturing cursor</h4>
+<ul>
+  <li><code><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten?tab=doc#CursorModeType">CursorModeType</a></code> / <code><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten?tab=doc#CursorMode">CursorMode</a></code> / <code><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten?tab=doc#SetCursorMode">SetCursorMode</a></code> are introduced (<a href="https://github.com/hajimehoshi/ebiten/issues/1016">Issue 1016</a>).</li>
+</ul>
+<h4>Misc.</h4>
+<ul>
+  <li><code><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten?tab=doc#SetWindowDecorated">SetWindowDecorated</a></code> before <code><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten?tab=doc#Run">Run</a></code> / <code><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten?tab=doc#RunGame">RunGame</a></code> is allowed (<a href="https://github.com/hajimehoshi/ebiten/issues/556">Issue 556</a>).</li>
+  <li><code><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten?tab=doc#Image.ReplacePixels">ReplacePixels</a></code> on a sub-image is allowed (<a href="https://github.com/hajimehoshi/ebiten/issues/980">Issue 980</a>).</li>
+  <li>Go modules are supported at <code>ebitenmobile</code> command (<a href="https://github.com/hajimehoshi/ebiten/issues/1055">Issue 1055</a>).</li>
+  <li>Keyboards are supported on Android and iOS (<a href="https://github.com/hajimehoshi/ebiten/issues/237">Issue 237</a>).</li>
+  <li>Gamepads are supported on Android (<a href="https://github.com/hajimehoshi/ebiten/issues/1083">Issue 1083</a>).</li>
+</ul>
+<h3>Performance improvement</h3>
+<ul>
+  <li>Creating images and replacing pixels are faster by using PBO (Pixel Buffer Object) (<a href="https://github.com/hajimehoshi/ebiten/issues/988">Issue 988</a>).</li>
+  <li>Other small optimizations (<a href="https://github.com/hajimehoshi/ebiten/issues/976">Issue 976</a>, <a href="https://github.com/hajimehoshi/ebiten/issues/981">Issue 981</a>, <a href="https://github.com/hajimehoshi/ebiten/issues/990">Issue 990</a>, <a href="https://github.com/hajimehoshi/ebiten/issues/1101">Issue 1101</a>).</li>
+</ul>
+<h3>Deprecated API</h3>
+<ul>
+  <li><code>SetScreenSize</code>: Use <code>Game</code> interface and <code>RunGame</code> function instead.</li>
+  <li><code>ScreenScale</code>: Use <code>WindowSize</code> instead.</li>
+  <li><code>SetScreenScale</code>: Use <code>SetWindowSize</code> instead.</li>
+  <li><code>IsCursorVisible</code>: Use <code>CursorMode</code> instead.</li>
+  <li><code>SetCursorVisible</code>: Use <code>SetCursorMode</code> instead.</li>
+  <li><code>IsRunnableInBackground</code>: Use <code>IsRunnableOnUnfocused</code> instead.</li>
+  <li><code>SetRunnableInBackground</code>: Use <code>SetRunnableOnUnfocused</code> instead.</li>
+</ul>
+<h3>Bug fix</h3>
+<ul>
+  <li>This release includes all the bug fixes in v1.10.x.</li>
+  <li>Enlarging an image failed on Android Huawei ALE-L02 (<a href="https://github.com/hajimehoshi/ebiten/issues/1044">Issue 1044</a>).</li>
+  <li>Blinking edges on iPad (<a href="https://github.com/hajimehoshi/ebiten/issues/1019">Issue 1019</a>).</li>
+</ul>
+<h2>v1.11.1</h2>
+<p><a href="https://github.com/hajimehoshi/ebiten/milestone/38?closed=1">Issues for v1.11.1</a></p>
+<h3>Bug fix</h3>
+<ul>
+  <li>Improve the performance when using <code>Game</code> interface's <code>Draw</code> function (<a href="https://github.com/hajimehoshi/ebiten/issues/1134">Issue 1134</a>, <a href="https://github.com/hajimehoshi/ebiten/issues/1140">Issue 1140</a>).</li>
+  <li><code>(*Image).At</code> could be unnecessarily slow (<a href="https://github.com/hajimehoshi/ebiten/issues/1137">Issue 1137</a>).</li>
+  <li><code>ebitenmobile</code> with specifying archtectures at <code>-target</code> did not work (<a href="https://github.com/hajimehoshi/ebiten/issues/1142">Issue 1142</a>).</li>
+</ul>
+<h2>v1.11.2</h2>
+<p><a href="https://github.com/hajimehoshi/ebiten/milestone/39?closed=1">Issues for v1.11.2</a></p>
+<h3>Bug fix</h3>
+<ul>
+  <li>A possible freeze on browsers (<a href="https://github.com/hajimehoshi/ebiten/issues/1161">Issue 1161</a>).</li>
+  <li>An image rendered by <code>Fill</code> may be failed to restore correctly after context-lost (<a href="https://github.com/hajimehoshi/ebiten/issues/1170">Issue 1170</a>).</li>
+</ul>
+<h2>v1.11.3</h2>
+<p><a href="https://github.com/hajimehoshi/ebiten/milestone/40?closed=1">Issues for v1.11.3</a></p>
+<h3>Bug fix</h3>
+<ul>
+  <li>Ensured that <code>Update</code> must be called at least once before <code>Draw</code> in the first frame (<a href="https://github.com/hajimehoshi/ebiten/issues/1155">Issue 1155</a>).</li>
+  <li>Crashed when an input device is detached on Android (<a href="https://github.com/hajimehoshi/ebiten/issues/1185">Issue 1185</a>).</li>
+  <li><code>SetVsyncEnabled(false)</code> before <code>Run</code> / <code>RunGame</code> didn&apos;t work (<a href="https://github.com/hajimehoshi/ebiten/issues/1197">Issue 1197</a>).</li>
+</ul>
+<h2>v1.11.4</h2>
+<p><a href="https://github.com/hajimehoshi/ebiten/milestone/41?closed=1">Issues for v1.11.4</a></p>
+<h3>Bug fix</h3>
+<ul>
+  <li>Mitigated the crashes when launching an application on macOS (<a href="https://github.com/hajimehoshi/ebiten/issues/1237">Issue 1237</a>).</li>
+</ul>
+<h2>v1.11.5</h2>
+<p><a href="https://github.com/hajimehoshi/ebiten/milestone/42?closed=1">Issues for v1.11.5</a></p>
+<h3>Bug fix</h3>
+<ul>
+  <li>Broken graphics on Raspberry Pi 4 (<a href="https://github.com/hajimehoshi/ebiten/issues/1208">Issue 1208</a>).</li>
+  <li>Delayed audio after sleeping on macOS (<a href="https://github.com/hajimehoshi/ebiten/issues/1259">Issue 1259</a>).</li>
+</ul>
+<h2>v1.11.6</h2>
+<p><a href="https://github.com/hajimehoshi/ebiten/milestone/43?closed=1">Issues for v1.11.6</a></p>
+<h3>Bug fix</h3>
+<ul>
+  <li>Build error for Android (<a href="https://github.com/hajimehoshi/ebiten/issues/1266">Issue 1266</a>).</li>
+</ul>
+<h2>v1.11.7</h2>
+<p><a href="https://github.com/hajimehoshi/ebiten/milestone/44?closed=1">Issues for v1.11.7</a></p>
+<h3>Bug fix</h3>
+<ul>
+  <li>Delayed audio after 1 minute sleeping on macOS (<a href="https://github.com/hajimehoshi/ebiten/issues/1280">Issue 1280</a>).</li>
+</ul>
+<h2>v1.11.8</h2>
+<p><a href="https://github.com/hajimehoshi/ebiten/milestone/45?closed=1">Issues for v1.11.8</a></p>
+<h3>Bug fix</h3>
+<ul>
+  <li>Freeze on Pixel 4 and Pixel 4a (<a href="https://github.com/hajimehoshi/ebiten/issues/1322">Issue 1322</a>, <a href="https://github.com/hajimehoshi/ebiten/issues/1332">Issue 1332</a>).</li>
+  <li><code>ebitenmobile</code> did not work with Go 1.15 (<a href="https://github.com/hajimehoshi/ebiten/issues/1336">Issue 1336</a>).</li>
+</ul>
+<h2>v1.11.9</h2>
+<p><a href="https://github.com/hajimehoshi/ebiten/milestone/46?closed=1">Issues for v1.11.9</a></p>
+<h3>Bug fix</h3>
+<ul>
+  <li>Vsync didn't work in fullscreen mode on Windows (<a href="https://github.com/hajimehoshi/ebiten/issues/1363">Issue 1363</a>).</li>
+</ul>
+
+      </article>
+      <footer>
+        <p>Feedback about this page? <a href="https://github.com/ebitengine/ebitengine.org/issues/new?body=https%3a%2f%2febitengine.org%2fen%2fdocuments%2f1.11.html%0a%0a">Please reach out on GitHub</a>. Thank you!</p>
+        
+      </footer>
+    </main>
+  </body>
+</html>

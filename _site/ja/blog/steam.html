@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    
+    <meta name="description" content="Ebitengine is an open source game engine for the Go programming language. Ebitengine&#39;s simple API allows you to quickly and easily develop 2D games that can be deployed across multiple platforms.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#db5620">
+    <meta property="og:title" content="Steam に Ebiten ゲームをリリースする方法 - Ebitengine">
+    <meta property="og:site_name" content="Ebitengine - A dead simple 2D game engine for Go">
+    <meta property="og:image" content="https://ebitengine.org/images/share.png">
+    <meta property="og:description" content="Ebitengine is an open source game engine for the Go programming language. Ebitengine&#39;s simple API allows you to quickly and easily develop 2D games that can be deployed across multiple platforms.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@hajimehoshi">
+    <meta name="twitter:title" content="Steam に Ebiten ゲームをリリースする方法 - Ebitengine">
+    <meta name="twitter:description" content="Ebitengine is an open source game engine for the Go programming language. Ebitengine&#39;s simple API allows you to quickly and easily develop 2D games that can be deployed across multiple platforms.">
+    <meta name="twitter:image" content="https://ebitengine.org/images/share.png">
+    <title>Steam に Ebiten ゲームをリリースする方法 - Ebitengine</title>
+    <link rel="canonical" href="https://ebitengine.org/ja/blog/steam.html">
+    <link rel="stylesheet" type="text/css" href="/styles/style.css">
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/katex.min.css" integrity="sha384-bYdxxUwYipFNohQlHt0bjN/LCpueqWz13HufFEV1SUatKs1cm4L6fFgCi1jT643X" crossorigin="anonymous">
+    <script src="/scripts/script.js" defer></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/katex.min.js" integrity="sha384-Qsn9KnoKISj6dI8g7p1HBlNpVx0I8p1SvlwOldgi3IorMle61nQy4zEahWYtljaz" crossorigin="anonymous"></script>
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "909e4403b96c402996fca889d074c29f"}'></script>
+  </head>
+  <body>
+    <input type="checkbox" id="sidemenu"><label for="sidemenu" class="sidemenubutton"></label><label for="sidemenu" class="sidemenucover"></label>
+    <nav>
+      <h1><a href="/ja/">Ebitengine™</a></h1>
+      <ul id="language">
+        <li><a href="/en/blog/steam.html">English</a></li>
+      
+        <li class="active">日本語</li>
+      </ul>
+      <ul>
+        <li><a href="https://ebiten-zh.vercel.app/">中文</a></li>
+      </ul>
+      <ul>
+        
+        <li><a href="/ja/">ホーム</a></li>
+        <li><a href="https://github.com/hajimehoshi/ebiten">ソースコード</a></li>
+        <li><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten/v2">API リファレンス</a></li>
+        <li><a href="/ja/tour/">ツアー (未完成)</a></li>
+        <li><a href="/ja/documents/">ドキュメント</a></li>
+        <li><a href="/ja/examples/">サンプル</a></li>
+        <li><a href="/ja/blog/">ブログ</a></li>
+        <li><a href="/ja/contact.html">連絡先</a></li>
+      </ul>
+      <h2>Blog</h2>
+<h3>2022-08</h3>
+<ul>
+  <li><a href="./v2.4.0.html">v2.4.0 がリリースされました</a></li>
+</ul>
+<h3>2022-06</h3>
+<ul>
+  <li><a href="./jam2022.html">Ebitengine ゲームジャムが始まりました</a></li>
+</ul>
+<h3>2022-05</h3>
+<ul>
+  <li><a href="./ebitengine.html">Ebiten を Ebitengine に名称変更しました</a></li>
+</ul>
+<h3>2022-04</h3>
+<ul>
+  <li><a href="./v2.3.0.html">v2.3.0 がリリースされました</a></li>
+</ul>
+<h3>2022-01</h3>
+<ul>
+  <li><a href="/en/blog/native_compiling_for_nintendo_switch.html">Compiling a Go program into a native binary for Nintendo Switch™</a></li>
+</ul>
+<h3>2021-12</h3>
+<ul>
+  <li><a href="./2021.html">2021 年の Ebiten</a></li>
+</ul>
+<h3>2021-10</h3>
+<ul>
+  <li><a href="./v2.2.0.html">v2.2.0 がリリースされました</a></li>
+</ul>
+<h3>2021-08</h3>
+<ul>
+  <li><a href="./steam.html">Steam に Ebiten ゲームをリリースする方法</a></li>
+</ul>
+<h3>2021-06</h3>
+<ul>
+  <li><a href="./nintendo_switch.html">Ebiten が Nintendo Switch™ をサポートしました!</a></li>
+</ul>
+<h3>2021-05</h3>
+<ul>
+  <li><a href="./v2.1.0.html">v2.1.0 がリリースされました</a></li>
+</ul>
+<h3>2020-12</h3>
+<ul>
+  <li><a href="./2020.html">2020 年の Ebiten</a></li>
+</ul>
+<h3>2020-10</h3>
+<ul>
+  <li><a href="./v2.0.0.html">v2.0.0 がリリースされました</a></li>
+  <li><a href="./v2_is_coming.html">Ebiten v2 がやってくる</a></li>
+  <li><a href="./v1.12.0.html">v1.12.0 がリリースされました</a></li>
+</ul>
+<h3>2020-07</h3>
+<ul>
+  <li><a href="./roadmap2020.html">2020 年以降のロードマップ</a></li>
+</ul>
+<h3>2020-06</h3>
+<ul>
+  <li><a href="./subimage.html">1.12 に入る破壊的変更: サブ画像の描画</a></li>
+</ul>
+<h3>2020-04</h3>
+<ul>
+  <li><a href="./v1.11.0.html">v1.11.0 がリリースされました</a></li>
+</ul>
+<h3>2020-03</h3>
+<ul>
+  <li><a href="/en/blog/v1.10.5.html">v1.10.5 is released</a></li>
+</ul>
+<h3>2020-02</h3>
+<ul>
+  <li><a href="/en/blog/v1.10.4.html">v1.10.4 is released</a></li>
+</ul>
+<h3>2020-01</h3>
+<ul>
+  <li><a href="/en/blog/v1.10.3.html">v1.10.3 is released</a></li>
+</ul>
+<h3>2019-12</h3>
+<ul>
+  <li><a href="/en/blog/v1.10.2.html">v1.10.2 is released</a></li>
+  <li><a href="/en/blog/resizable.html">New API to make a resizable window</a></li>
+  <li><a href="/en/blog/2019.html">Ebiten in 2019</a></li>
+</ul>
+<h3>2019-11</h3>
+<ul>
+  <li><a href="/en/blog/v1.10.1.html">v1.10.1 is released</a></li>
+  <li><a href="/en/blog/hello.html">Hello!</a></li>
+</ul>
+
+    </nav>
+    <main>
+      <article>
+        <h1>Steam に Ebiten ゲームをリリースする方法</h1>
+<p class="meta">Hajime Hoshi<br><span id="meta-created">2021-08-29</span></p>
+<p>先日、 Ebiten 製ゲーム「<a href="https://store.steampowered.com/app/1710390/__2007/">いの べーしょん 2007!</a>」を Steam ストアでリリースすることに成功しました。無料ゲームです。 Windows、 macOS、 Linux の全プラットフォームに対応させました。なおソースコードは <a href="https://github.com/hajimehoshi/go-inovation">GitHub</a> にて公開されています。</p>
+<figure>
+  <p class="img"><img src="/images/blog/steam/innovation2007.png"></p>
+  <figcaption>Copyright 2007 Omega</figcaption>
+</figure>
+<p>Steam でゲームをリリースするためには審査が必要です。審査を通すためには、単に Ebiten ゲームを Go でビルドするだけではありません。様々な作業が必要になります。この記事では Ebiten ゲームを審査に通すために必要な事項をまとめます。 Steamworks の一般的な解説は省きます。</p>
+<p>以下の説明では、ゲーム名を <code>yourgame</code>、ユーザー名を <code>Your Name</code> などにしています。適宜読み替えてください。</p>
+<h2>Steamworks SDK</h2>
+<p>Steam の機能にはユーザーの言語取得や実績解除などがあります。それらは <a href="https://partner.steamgames.com/doc/sdk">Steamworks SDK</a> 経由で呼び出されます。 SDK のファイル形式は DLL や so ファイルなどの動的ライブラリなので、 Go から使うためには一工夫必要です。</p>
+<p>そこで、 <a href="https://github.com/hajimehoshi/go-steamworks"><code>go-steamworks</code></a> というバインディングを作りました。 import するだけで使えます。例えば、「Steam クライアント経由で開いていなかったら開き直す」処理は次のように書けます。</p>
+<pre><code>package main
+
+import (
+	"os"
+
+	"github.com/hajimehoshi/go-steamworks"
+)
+
+const appID = 480 // Use your application ID.
+
+func init() {
+	if steamworks.RestartAppIfNecessary(appID) {
+		os.Exit(1)
+	}
+	if !steamworks.Init() {
+		panic("steamworks.Init failed")
+	}
+}</code></pre>
+<p>なおこのバインディングはまだ API をほとんど実装していません。今後対応予定です。</p>
+<h2>Windows</h2>
+<p>Windows は最も簡単で、普通に Go でビルドするだけです。 Ebiten は Windows においては Pure Go なので、 <code>GOOS</code> と <code>GOARCH</code> を指定すればどこでもビルドできます。</p>
+<p>PowerShell でビルドする場合は次のようになります。</p>
+<pre><code>$Env:GOARCH = '386'
+go build -o yourgame_windows_386.exe .
+$Env:GOARCH = 'amd64'
+go build -o yourgame_windows_amd64.exe .
+Remove-Item Env:GOARCH</code></pre>
+<p>POSIX シェルでビルドする場合は次のようになります。</p>
+<pre><code>env GOOS=windows GOARCH=386 go build -o yourgame_windows_386.exe .
+    env GOOS=windows GOARCH=amd64 go build -o yourgame_windows_amd64.exe .</code></pre>
+<p>Windows 向け GUI アプリをビルドする際には <code>-ldflags=-H=windowsgui</code> をつけると、最初のコンソールの表示がなくなります。 Ebiten の場合はコンソールを自動で閉じるので、つけなくても問題はありません。</p>
+<p>アイコンは必須ではありません。気になる方はリソースを埋め込むツールを適宜使ってください。</p>
+<p>こうして出来上がった <code>exe</code> ファイルを zip で固めて、 Steamworks にビルドとしてアップロードしてください。</p>
+<h2>macOS</h2>
+<p>macOS の場合は <code>.app</code> 形式のアプリケーションを作る必要があります。また Apple から<a href="https://developer.apple.com/documentation/security/notarizing_macos_software_before_distribution">公証 (Notarization)</a> を受ける必要があります。公証は、 Steam 審査のためには厳密には必須ではないらしいのですが、ないと新しめ (10.15 以降?) の macOS では動かなくなるので、ほぼ必須といってよいでしょう。公証を受けるためには <a href="https://developer.apple.com/">Apple Developer</a> の登録が必須です。</p>
+<p>本記事作成にあたって、ブログ記事 <a href="https://coldandold.com/posts/releasing-steam-game-on-mac/">Releasing Steam Games on Mac Is a Monster Pain</a> を参考にしました。</p>
+<p>アーキテクチャは amd64 を前提とします。残念ながら、 Steamworks SDK が M1 (arm64) にまだ対応していないようです。 (EDIT 2022-05-07: 最新の Steamworks SDK は M1 (arm64) をサポートしています。)</p>
+<p>まずアイコンファイルを <code>icns</code> 形式で用意します。この形式は PNG などを <code>Preview.app</code> で開いてエクスポートするだけで作れます。エクスポートのフォーマット一覧に出てこない場合は、 Alt キーを押しながらフォーマット一覧を開くと出てきます。</p>
+<p>次に必要最小限の <code>.app</code> を次のように作ります。</p>
+<pre><code>name=yourgame
+app_name=YourGame.app
+bundle_id=com.example.yourgame
+
+rm -rf ${app_name}
+mkdir -p ${app_name}/Contents/MacOS
+mkdir -p ${app_name}/Contents/Resources
+env CGO_ENABLED=1 CGO_CFLAGS=-mmacosx-version-min=10.12 CGO_LDFLAGS=-mmacosx-version-min=10.12 GOARCH=amd64 go build -o ${app_name}/Contents/MacOS/${name} .
+cp icon.icns ${app_name}/Contents/Resources/icon.icns
+echo '&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;
+&lt;plist version="1.0"&gt;
+  &lt;dict&gt;
+    &lt;key&gt;CFBundlePackageType&lt;/key&gt;
+    &lt;string&gt;APPL&lt;/string&gt;
+    &lt;key&gt;CFBundleInfoDictionaryVersion&lt;/key&gt;
+    &lt;string&gt;6.0&lt;/string&gt;
+    &lt;key&gt;CFBundleExecutable&lt;/key&gt;
+    &lt;string&gt;{{.Name}}&lt;/string&gt;
+    &lt;key&gt;CFBundleIdentifier&lt;/key&gt;
+    &lt;string&gt;{{.BundleID}}&lt;/string&gt;
+    &lt;key&gt;CFBundleIconFile&lt;/key&gt;
+    &lt;string&gt;icon.icns&lt;/string&gt;
+    &lt;key&gt;CFBundleVersion&lt;/key&gt;
+    &lt;string&gt;0.0.0&lt;/string&gt;
+    &lt;key&gt;CFBundleShortVersionString&lt;/key&gt;
+    &lt;string&gt;0.0.0&lt;/string&gt;
+    &lt;key&gt;NSHighResolutionCapable&lt;/key&gt;
+    &lt;true /&gt;
+    &lt;key&gt;LSMinimumSystemVersion&lt;/key&gt;
+    &lt;string&gt;10.12.0&lt;/string&gt;
+  &lt;/dict&gt;
+&lt;/plist&gt;' |
+    sed -e "s/{{.Name}}/${name}/g" |
+    sed -e "s/{{.BundleID}}/${bundle_id}/g" &gt; ${app_name}/Contents/Info.plist</code></pre>
+<p><code>CGO_CFLAGS</code> と <code>CGO_LDFLAGS</code> に <code>-mmacosx-version-min=10.12</code> を指定しています。この指定がないと、ビルドした環境より古い macOS で動かなくなってしまいます。</p>
+<p>次に App ID (Bundle ID) を、 <a href="https://developer.apple.com/account/">Apple Developer の Account ページ</a>で、ない場合は作成します。</p>
+<figure>
+  <p class="img"><img src="/images/blog/steam/app_id.png"></p>
+</figure>
+<p>次に Developer ID (Developer ID Application) の Certificate を、 <a href="https://developer.apple.com/account/">Apple Developer の Account ページ</a>で、ない場合は作成します。</p>
+<figure>
+  <p class="img"><img src="/images/blog/steam/developer_id_application.png"></p>
+</figure>
+<p>次に App-Specific Password を作ります。 <a href="https://appleid.apple.com/">Apple ID のサイト</a>から簡単に作れます。詳しくは <a href="https://support.apple.com/en-us/HT204397">Apple のヘルプページ</a>を参考にしてください。</p>
+<p>次に公証を受けます。</p>
+<pre><code>name=yourgame
+app_name=YourGame.app
+bundle_id=com.example.yourgame
+email=yourname@example.com
+developer_name='Developer ID Application: Your Name (1234567890)'
+asc_provider=1234567890
+
+mkdir -p .cache
+
+echo '&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;
+&lt;plist version="1.0"&gt;
+  &lt;dict&gt;
+    &lt;key&gt;com.apple.security.cs.disable-library-validation&lt;/key&gt;
+    &lt;true/&gt;
+    &lt;key&gt;com.apple.security.cs.allow-dyld-environment-variables&lt;/key&gt;
+    &lt;true/&gt;
+  &lt;/dict&gt;
+&lt;/plist&gt;' &gt; .cache/entitlements.plist
+
+codesign --display \
+         --verbose \
+         --verify \
+         --sign "${developer_name}" \
+         --timestamp \
+         --options runtime \
+         --force \
+         --entitlements .cache/entitlements.plist \
+         --deep \
+         ${app_name}
+
+ditto -c -k --keepParent ${app_name} ${app_name}.zip
+
+if [[ -z "${APP_SPECIFIC_PASSWORD}" ]]; then
+    echo 'fail: set APP_SPECIFIC_PASSWORD. See https://support.apple.com/en-us/HT204397'
+    exit 1
+fi
+
+xcrun altool --notarize-app \
+             --primary-bundle-id "${bundle_id}" \
+             --username "${email}" \
+             --password "${APP_SPECIFIC_PASSWORD}" \
+             --asc-provider "${asc_provider}" \
+             --file ${app_name}.zip
+rm ${app_name}.zip</code></pre>
+<p>実行すると公証のトランザクション UUID が表示されます。 5 分くらい待つと Apple からメールが来るはずです。</p>
+<p>公証に成功した場合は次のコマンドを実行してください。</p>
+<pre><code>xcrun stapler staple YourGame.app</code></pre>
+<p>公証のログを見たい場合は、次のコマンドを実行してください。引数は適切な値に置き換えてください。コマンドを実行すると URL が表示され、それにアクセスすると現在の状況が見れます。失敗した場合は失敗理由も書いてあるはずです。</p>
+<pre><code>xcrun altool --notarization-info UUID --username YOUR_MAIL_ADDRESS --password APP_SPECIFIC_PASSWORD</code></pre>
+<p>こうして出来上がった <code>.app</code> を Steamworks にビルドとしてアップロードする際、 <code>zip</code> コマンドや Finder のメニューで zip ファイルを作ってはいけません。公証を受けた <code>.app</code> には特殊なファイルをが含まれていて、普通に zip を作ろうとするとそのファイルが欠落してしまいます。代わりに <code>ditto</code> コマンドを使って zip ファイルを作ります。</p>
+<pre><code>ditto -c -k --keepParent YourGame.app yourgame_darwin_amd64.zip</code></pre>
+<h2>Linux</h2>
+<p>Linux の場合は <a href="https://github.com/ValveSoftware/steam-runtime">Steam Runtime</a> が Dockerfile として用意されています。その環境下でビルドするのが最も簡単です。</p>
+<pre><code>name=yourgame
+STEAM_RUNTIME_VERSION=0.20210817.0
+GO_VERSION=$(go env GOVERSION)
+
+mkdir -p .cache/${STEAM_RUNTIME_VERSION}
+
+# Download binaries for 386.
+if [[ ! -f .cache/${STEAM_RUNTIME_VERSION}/com.valvesoftware.SteamRuntime.Sdk-i386-scout-sysroot.Dockerfile ]]; then
+    (cd .cache/${STEAM_RUNTIME_VERSION}; curl --location --remote-name https://repo.steampowered.com/steamrt-images-scout/snapshots/${STEAM_RUNTIME_VERSION}/com.valvesoftware.SteamRuntime.Sdk-i386-scout-sysroot.Dockerfile)
+fi
+if [[ ! -f .cache/${STEAM_RUNTIME_VERSION}/com.valvesoftware.SteamRuntime.Sdk-i386-scout-sysroot.tar.gz ]]; then
+    (cd .cache/${STEAM_RUNTIME_VERSION}; curl --location --remote-name https://repo.steampowered.com/steamrt-images-scout/snapshots/${STEAM_RUNTIME_VERSION}/com.valvesoftware.SteamRuntime.Sdk-i386-scout-sysroot.tar.gz)
+fi
+if [[ ! -f .cache/${GO_VERSION}.linux-386.tar.gz ]]; then
+    (cd .cache; curl --location --remote-name https://golang.org/dl/${GO_VERSION}.linux-386.tar.gz)
+fi
+
+# Download binaries for amd64.
+if [[ ! -f .cache/${STEAM_RUNTIME_VERSION}/com.valvesoftware.SteamRuntime.Sdk-amd64,i386-scout-sysroot.Dockerfile ]]; then
+    (cd .cache/${STEAM_RUNTIME_VERSION}; curl --location --remote-name https://repo.steampowered.com/steamrt-images-scout/snapshots/${STEAM_RUNTIME_VERSION}/com.valvesoftware.SteamRuntime.Sdk-amd64,i386-scout-sysroot.Dockerfile)
+fi
+if [[ ! -f .cache/${STEAM_RUNTIME_VERSION}/com.valvesoftware.SteamRuntime.Sdk-amd64,i386-scout-sysroot.tar.gz ]]; then
+    (cd .cache/${STEAM_RUNTIME_VERSION}; curl --location --remote-name https://repo.steampowered.com/steamrt-images-scout/snapshots/${STEAM_RUNTIME_VERSION}/com.valvesoftware.SteamRuntime.Sdk-amd64,i386-scout-sysroot.tar.gz)
+fi
+if [[ ! -f .cache/${GO_VERSION}.linux-amd64.tar.gz ]]; then
+    (cd .cache; curl --location --remote-name https://golang.org/dl/${GO_VERSION}.linux-amd64.tar.gz)
+fi
+
+# Build for 386
+(cd .cache/${STEAM_RUNTIME_VERSION}; docker build -f com.valvesoftware.SteamRuntime.Sdk-i386-scout-sysroot.Dockerfile -t steamrt_scout_i386:latest .)
+docker run --rm --workdir=/work --volume $(pwd):/work steamrt_scout_i386:latest /bin/sh -c "
+export PATH=\$PATH:/usr/local/go/bin
+export CGO_CFLAGS=-std=gnu99
+
+rm -rf /usr/local/go && tar -C /usr/local -xzf .cache/${GO_VERSION}.linux-386.tar.gz
+
+go build -o ${name}_linux_386 .
+"
+
+# Build for amd64
+(cd .cache/${STEAM_RUNTIME_VERSION}; docker build -f com.valvesoftware.SteamRuntime.Sdk-amd64,i386-scout-sysroot.Dockerfile -t steamrt_scout_amd64:latest .)
+docker run --rm --workdir=/work --volume $(pwd):/work steamrt_scout_amd64:latest /bin/sh -c "
+export PATH=\$PATH:/usr/local/go/bin
+export CGO_CFLAGS=-std=gnu99
+
+rm -rf /usr/local/go && tar -C /usr/local -xzf .cache/${GO_VERSION}.linux-amd64.tar.gz
+
+go build -o ${name}_linux_amd64 .
+"</code></pre>
+<p>出来上がった <code>yourgame_linux_386</code> および <code>yourgame_linux_amd64</code> をそれぞれ zip に固めて、 Steamworks にビルドとしてアップロードしてください。</p>
+<h2>その他</h2>
+<ul>
+  <li><a href="https://partner.steamgames.com/doc/store/testing">Dev Comp パッケージ</a>をダウンロードできるようにアカウントを設定することを強く推奨します。 Steam でゲームがダウンロードされる本来の箇所 (<code>steamapps/common/yourgame</code>) で実行ファイルを置き換えることで、本番に近いテストが行なえます。</li>
+  <li>スクリーンショットとして、タイトル、メニュー、ローディング<em>以外</em>の画面が 5 枚必要です。筆者はこれにハマりました。</li>
+</ul>
+<p>本記事が Ebiten ゲームの Steam リリースの一助になれば幸いです。<p>
+
+      </article>
+      <footer>
+        
+        <p>このページに何か問題がありましたら、<a href="https://github.com/ebitengine/ebitengine.org/issues/new?body=https%3a%2f%2febitengine.org%2fja%2fblog%2fsteam.html%0a%0a">GitHub にて報告</a>していただけると幸いです。</p>
+      </footer>
+    </main>
+  </body>
+</html>
