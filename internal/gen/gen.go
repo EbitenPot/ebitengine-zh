@@ -283,12 +283,12 @@ type AltPage struct {
 
 func langName(lang string) string {
 	switch lang {
+	case "zh":
+		return "中文"
 	case "en":
 		return "English"
 	case "ja":
 		return "日本語"
-	case "zh":
-		return "中文"
 	}
 	return ""
 }
