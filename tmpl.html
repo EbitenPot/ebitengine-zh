@@ -25,6 +25,7 @@
     <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "909e4403b96c402996fca889d074c29f"}'></script><!-- End Cloudflare Web Analytics -->
   </head>
   <body>
+    
     {{if .NavExists -}}
     <input type="checkbox" id="sidemenu"><label for="sidemenu" class="sidemenubutton"></label><label for="sidemenu" class="sidemenucover"></label>
     <nav>
@@ -32,9 +33,6 @@
       <ul id="language">{{ range .AltPages }}
         {{ if .Available }}<li><a href="{{.URL}}">{{.Title}}</a></li>{{ else }}<li class="active">{{.Title}}</li>{{ end }}
       {{ end }}</ul>
-      <ul>
-        <li><a href="https://ebiten-zh.vercel.app/">中文</a></li>
-      </ul>
       <ul>
         {{ if eq .Lang "en" }}<li><a href="{{ .Top }}">Home</a></li>
         <li><a href="https://github.com/hajimehoshi/ebiten">Source code</a></li>
@@ -52,6 +50,14 @@
         <li><a href="/ja/examples/">サンプル</a></li>
         <li><a href="/ja/blog/">ブログ</a></li>
         <li><a href="/ja/contact.html">連絡先</a></li>{{ end }}
+        {{ if eq .Lang "zh" }}<li><a href="{{ .Top }}">Home</a></li>
+        <li><a href="https://github.com/hajimehoshi/ebiten">Source code</a></li>
+        <li><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten/v2">API reference</a></li>
+        <li><a href="/en/tour/">Tour (WIP)</a></li>
+        <li><a href="/en/documents/">Documents</a></li>
+        <li><a href="/en/examples/">Examples</a></li>
+        <li><a href="/en/blog/">Blog</a></li>
+        <li><a href="/en/contact.html">Contact Us</a></li>{{ end }}
       </ul>
       {{ if .SubNav }}{{ .SubNav | noescape }}{{ end }}
     </nav>
@@ -64,6 +70,8 @@
       <footer>
         {{ if eq .Lang "en" }}<p>Feedback about this page? <a href="https://github.com/ebitengine/ebitengine.org/issues/new?body={{.Canonical}}%0a%0a">Please reach out on GitHub</a>. Thank you!</p>{{ end }}
         {{ if eq .Lang "ja" }}<p>このページに何か問題がありましたら、<a href="https://github.com/ebitengine/ebitengine.org/issues/new?body={{.Canonical}}%0a%0a">GitHub にて報告</a>していただけると幸いです。</p>{{ end }}
+        {{ if eq .Lang "zh" }}<p>Feedback about this page? <a href="https://github.com/ebitengine/ebitengine.org/issues/new?body={{.Canonical}}%0a%0a">请在GitHub上反馈我</a>. 谢谢!</p>{{ end }}
+
       </footer>
       {{- end }}
     </main>

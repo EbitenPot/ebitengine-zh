@@ -235,17 +235,17 @@ func Run(url, description string) error {
 		}
 
 		sort.Slice(altPages, func(i, j int) bool {
-			if altPages[i].Lang == "en" {
+			if altPages[i].Lang == "zh" {
 				return true
 			}
-			if altPages[j].Lang == "en" {
+			if altPages[j].Lang == "zh" {
 				return false
 			}
 			return altPages[i].Lang < altPages[j].Lang
 		})
 
 		top := "/"
-		if lang != "en" {
+		if lang != "zh" {
 			top += lang + "/"
 		}
 
