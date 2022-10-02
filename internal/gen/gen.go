@@ -181,7 +181,7 @@ func Run(url, description string) error {
 			share = url + s
 		}
 
-		lang := "en"
+		lang := "zh"
 		if relDir := filepath.Dir(rel); len(relDir) > 0 && relDir != "." {
 			if parts := strings.Split(relDir, string(filepath.Separator)); len(parts) > 0 {
 				lang = parts[0]
@@ -202,12 +202,12 @@ func Run(url, description string) error {
 
 			var altRel string
 			if rel == "index.html" {
-				// The top page for non-English
+				// The top page for non-zh
 				altRel = filepath.Join(l, rel)
 			} else {
 				dir, file := filepath.Split(rel)
 				if dir == lang+string(filepath.Separator) && file == "index.html" && l == "zh" {
-					// The top page for English
+					// The top page for zh
 					altRel = "index.html"
 				} else {
 					altRel = l + rel[len(lang):]
