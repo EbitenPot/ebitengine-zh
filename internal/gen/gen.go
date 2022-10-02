@@ -206,7 +206,7 @@ func Run(url, description string) error {
 				altRel = filepath.Join(l, rel)
 			} else {
 				dir, file := filepath.Split(rel)
-				if dir == lang+string(filepath.Separator) && file == "index.html" && l == "en" {
+				if dir == lang+string(filepath.Separator) && file == "index.html" && l == "zh" {
 					// The top page for English
 					altRel = "index.html"
 				} else {
