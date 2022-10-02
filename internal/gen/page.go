@@ -46,7 +46,7 @@ func newPage(content []byte, path string) (*page, error) {
 func (p *page) title() (string, error) {
 	dirs := strings.Split(filepath.Dir(p.path), string(filepath.Separator))
 	if len(dirs) == 1 || (len(dirs) == 2 && filepath.Base(p.path) == "index.html") {
-		return "Ebitengine - A dead simple 2D game engine for Go", nil
+		return "Ebitengine - 一款Go语言编写的超级简单2D游戏引擎", nil
 	}
 
 	h1, err := findFirstElementByName(p.node, "h1")
