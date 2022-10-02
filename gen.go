@@ -21,7 +21,7 @@ import (
 )
 
 const (
-	url         = "https://ebitengine.org"
+	url         = "https://ebitengine-zh.pages.dev/"
 	description = "Ebitengine is an open source game engine for the Go programming language. Ebitengine's simple API allows you to quickly and easily develop 2D games that can be deployed across multiple platforms."
 )
 

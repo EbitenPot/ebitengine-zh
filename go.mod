@@ -6,7 +6,6 @@ require (
 	cloud.google.com/go/storage v1.26.0
 	golang.org/x/net v0.0.0-20220826154423-83b083e8dc8b
 	golang.org/x/sync v0.0.0-20220819030929-7fc1605a5dde
-	golang.org/x/tools v0.1.12
 )
 
 require (
